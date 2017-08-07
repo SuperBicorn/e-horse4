@@ -7,12 +7,16 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
 
 import fr.adaming.model.Panier;
 import fr.adaming.model.Produit;
 import fr.adaming.service.IProduitService;
 
+/**
+ * Classe de définition du bean paMB pour le panier
+ * @author INTI-399
+ *
+ */
 @ManagedBean(name = "paMB")
 @ApplicationScoped
 public class PanierManagedBean {
@@ -64,7 +68,11 @@ public class PanierManagedBean {
 		this.qtte = qtte;
 	}
 
-	// méthodes
+	/**
+	 * Méthode pour ajouter un produit au panir
+	 * @param id_p
+	 * @return panier actualisé sur la page index
+	 */
 	public String ajouterProduitPanier(int id_p) {
 		Produit prod = prService.getById(id_p);
 		this.panier = new Panier(prod,this.qtte,prod.getPrix()*qtte);
@@ -87,7 +95,11 @@ public class PanierManagedBean {
 			return "index";
 		}
 	}
-	
+	/**
+	 * MOdification de la quantité de produit dans le panier
+	 * @param id_p
+	 * @return page panier où se fait l'action
+	 */
 	public String modifierQuantitePanier(int id_p){
 		Produit prod = prService.getById(id_p);
 		for (Panier pan : this.lPaniers) {
@@ -100,6 +112,11 @@ public class PanierManagedBean {
 		return "panier";
 	}
 
+	/**
+	 * Suppression d'un produit dans le panier - la liste panier
+	 * @param id_p
+	 * @return le panier actualisé sur la page panier
+	 */
 	public String supprimerPanier(int id_p){
 		Produit prod = prService.getById(id_p);
 		for (Panier pan : this.lPaniers) {

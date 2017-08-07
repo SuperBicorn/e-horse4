@@ -10,7 +10,11 @@ import javax.faces.bean.RequestScoped;
 
 import fr.adaming.model.Categorie;
 import fr.adaming.service.ICategorieService;
-
+/**
+ * Classe de définition du bean CatMB
+ * @author INTI-399
+ *
+ */
 @ManagedBean(name="catMB")
 @RequestScoped
 public class CategorieManagedBean implements Serializable {
@@ -48,25 +52,39 @@ public class CategorieManagedBean implements Serializable {
 		super();
 		this.categorie=new Categorie(); 
 	}
-	
+	/**
+	 * PostConstruct pour pouvoir génrer et afficher la liste tout le temps
+	 * @return liste des catégories
+	 */
 	@PostConstruct
 	public void init() {
 		this.lCategories=caService.getAll();		
 	}
 	
-	
+	/**
+	 * Ajouter une catégorie
+	 * @return ajout de la cat à la BD + list des cat actualisée
+	 */
 	public String ajouterCategorie() {
 		caService.ajout(this.categorie);
 		this.lCategories=caService.getAll();
 		return "listeCategorie";
 	}
-	
+	/**
+	 * Modification d'une cat dans la BD
+	 * @return Cat modifiée + listeCat actualisée
+	 */
 	public String modifCategorie() {
 			caService.modif(this.categorie);
 		this.lCategories=caService.getAll();
 		return "listeCategorie";
 	}
 	
+	/**
+	 * Suppression d'une Cat
+	 * @param id
+	 * @return liste de cat actualisée
+	 */
 	public String supprCategorie(int id){
 		caService.supprId(id);
 		this.lCategories=caService.getAll();

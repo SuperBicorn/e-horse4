@@ -1,5 +1,8 @@
 package fr.adaming.managedBean;
 
+/**
+ * Definition de l'agent pour l'authentification utilisé pour l'admin
+ */
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -32,7 +35,10 @@ public class AgentManagedBean {
 	public void setaSer(IAgentService aSer) {
 		this.aSer = aSer;
 	}
-
+/**
+ * Méthode de vérification de l'exstence de l'admin dans la base de donnée
+ * @return accueilAdmin si ok index sinon
+ */
 	public String verif(){
 		int verif = aSer.verif(this.agent.getUsername(), this.agent.getMdp());
 		if (verif == 1){
@@ -42,7 +48,10 @@ public class AgentManagedBean {
 			return "index";
 		}
 	}
-	
+	/**
+	 * Méthode pour la déconnexion de l'admin
+	 * @return page index
+	 */
 	public String deco(){
 		return "index";
 	}
