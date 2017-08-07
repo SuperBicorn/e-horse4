@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<title>Ajout</title>
+</h:head>
+
+<h:body>
+<ui:insert>
+		<ui:include src="/template/headerTemplate.xhtml"></ui:include>
+	</ui:insert>
+	<p:separator/>
+<h1 style="text-align: center; color: red;">Liste des produits</h1>
+
+<h:form>
+		<h:panelGrid columns="2">
+
+			<p:outputLabel for="Designation" value="Designation" />
+			<p:inputMask id="Designation" value="#{prMB.produit.designation}" />
+
+			<p:outputLabel for="Description" value="Description" />
+			<p:inputMask id="Description" value="#{prMB.produit.description}" />
+				
+				<p:outputLabel for="Categorie" value="Catégorie" />
+			<p:inputMask id="Categorie" value="#{prMB.idCategorie}" />
+			
+			<p:outputLabel for="Prix" value="Prix" />
+			<p:inputMask id="Prix" value="#{prMB.produit.prix}" />
+			
+			<p:outputLabel for="Quantité" value="Quantité" />
+			<p:inputMask id="Quantité" value="#{prMB.produit.quantite}" />
+			
+			<p:outputLabel for="Selectionne" value="Selectionne" />
+			<p:inputMask id="Selectionne" value="#{prMB.produit.selectionne}" />
+
+		</h:panelGrid>
+
+		<p:commandButton value="Ajouter" action="#{prMB.ajouterProduit}"
+			update="@all" />
+
+	</h:form>
+</h:body>
+
+</html>

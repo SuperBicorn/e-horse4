@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Header</title>
+</h:head>
+
+<body>
+	<ui:composition>
+		<h:form>
+			<p:growl id="messages" />
+			<p:menubar>
+				<p:menuitem value="Accueil Administrateur"
+					url="accueilAdmin.xhtml" />
+				<p:submenu label="Produits">
+					<p:menuitem value="Liste des produits" url="accueilAdmin.xhtml" />
+					<p:menuitem value="Ajouter un produit" url="ajoutProduit.xhtml" />
+					<p:menuitem value="Modifier un produit" url="modifProduit.xhtml" />
+				</p:submenu>
+				<p:submenu label="Catégories">
+					<p:menuitem value="Liste des catégories" url="listeCategorie.xhtml" />
+					<p:menuitem value="Ajouter une catégorie" url="ajoutCategorie.xhtml" />
+					<p:menuitem value="Modifier une catégorie" url="modifCategorie.xhtml" />
+				</p:submenu>
+				<f:facet name="options">
+					<p:inputText style="margin-right:10px" placeholder="Search" />
+					
+					<p:commandButton type="button" value="Logout" action="#{aMB.deco}"
+						icon="ui-icon-extlink" />
+				</f:facet>
+			</p:menubar>
+		</h:form>
+	</ui:composition>
+</body>
+</html>

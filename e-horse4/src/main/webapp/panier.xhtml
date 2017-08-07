@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Panier</title>
+</h:head>
+
+<h:body>
+	<ui:insert>
+		<ui:include src="/template/headerClientTemplate.xhtml"></ui:include>
+	</ui:insert>
+
+	<h1 style="text-align: center; color: red;">Votre Panier</h1>
+
+	<p:dataTable var="pan" value="#{paMB.lPaniers}">
+		<p:column headerText="Produit">
+			<h:outputText value="#{pan.produit.designation}" />
+		</p:column>
+
+		<p:column headerText="Catégorie">
+			<h:outputText value="#{pan.produit.categorie.nomCategorie}" />
+		</p:column>
+
+		<p:column headerText="Prix">
+			<h:outputText value="#{pan.produit.prix}" />
+		</p:column>
+		<p:column headerText="Quantité">
+			<h:outputText value="#{pan.quantite}" />
+		</p:column>
+		<p:column headerText="Prix total">
+			<h:outputText value="#{pan.prix}" />
+		</p:column>
+		<p:column headerText="Modifier quantité">
+			<h:form>
+				<p:inputMask value="#{paMB.qtte}" />
+				<p:commandButton value="Modifier la quantité"
+					action="#{paMB.modifierQuantitePanier(pan.produit.idProduit)}" />
+			</h:form>
+		</p:column>
+		<p:column headerText="Supprimer">
+			<h:form>
+				<p:commandButton value="Supprimer le panier"
+					action="#{paMB.supprimerPanier(pan.produit.idProduit)}" />
+			</h:form>
+		</p:column>
+
+	</p:dataTable>
+
+
+</h:body>
+</html>

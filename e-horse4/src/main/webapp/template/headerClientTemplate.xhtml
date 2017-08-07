@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Header</title>
+</h:head>
+
+<body>
+	<ui:composition>
+		<h:form>
+			<p:growl id="messages" />
+			<p:menubar >
+				<p:menuitem value="Accueil" url="index.xhtml" />
+				<p:submenu label="Produits" >
+					<p:menuitem value="Tous les produits" url="#" />
+					<p:menuitem value="Catégorie 1" url="#" />
+					<p:menuitem value="Catégorie 2" url="#" />
+				</p:submenu>
+					<p:menuitem value="Voir le Compte/panier" url="panier.xhtml" />
+			
+				<f:facet name="options">
+				<p:inputMask style="margin-right:10px" placeholder="Search" value="#{prMB.produit.designation}" />
+				<p:commandButton value="Chercher" action="#{prMB.getProduitByNom}"
+			update="@all" />
+				</f:facet>
+			</p:menubar>
+		</h:form>
+	</ui:composition>
+</body>
+</html>
