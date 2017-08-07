@@ -61,7 +61,11 @@ public class PanierManagedBean {
 		this.qtte = qtte;
 	}
 
-	// méthodes
+	/**
+	 * méthhode pou
+	 * @param id_p du produit à ajouter au panier
+	 * @return redirection vers la page index
+	 */
 	public String ajouterProduitPanier(int id_p) {
 		Produit prod = prService.getById(id_p);
 		this.panier = new Panier(prod, this.qtte, prod.getPrix() * qtte);
@@ -85,6 +89,11 @@ public class PanierManagedBean {
 		}
 	}
 
+	/**
+	 * méthode pour modifier la quantité d'un produit dans le panier
+	 * @param id_p id du produit à modifier
+	 * @return redirection vers la page panier
+	 */
 	public String modifierQuantitePanier(int id_p) {
 		Produit prod = prService.getById(id_p);
 		for (Panier pan : this.lPaniers) {
@@ -97,9 +106,13 @@ public class PanierManagedBean {
 			}
 		}
 		return "panier";
-
 	}
 
+	/**
+	 * méthode pour supprimer un produit du panier
+	 * @param id_p id du produit à supprimer
+	 * @return redirection vers le panier
+	 */
 	public String supprimerPanier(int id_p) {
 		Produit prod = prService.getById(id_p);
 		for (Panier pan : this.lPaniers) {

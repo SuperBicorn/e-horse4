@@ -11,6 +11,11 @@ import org.springframework.stereotype.Repository;
 import fr.adaming.model.Categorie;
 import fr.adaming.model.Produit;
 
+/**
+ * Couche DAO de la classe catégorie
+ * @author INTI-390
+ *
+ */
 @Repository
 public class CategorieDaoImpl implements IGenerique<Categorie> {
 

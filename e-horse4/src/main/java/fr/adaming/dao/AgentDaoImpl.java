@@ -12,6 +12,11 @@ import com.mysql.fabric.xmlrpc.Client;
 
 import fr.adaming.model.Agent;
 
+/**
+ * Couche DAO de la classe agent
+ * @author INTI-390
+ *
+ */
 @Repository
 public class AgentDaoImpl implements IAgentDao {
 
