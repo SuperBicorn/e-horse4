@@ -17,13 +17,20 @@ public class CategorieDaoImpl implements IGenerique<Categorie> {
 	@Autowired
 	private SessionFactory sf;
 	
-	
+	/**
+	 * Méthode pour ajouter une catégorie dans la BDD
+	 * @param catégorie à ajouter
+	 */
 	@Override
 	public void ajout(Categorie t) {
 		Session s=sf.getCurrentSession();
 		s.save(t);
 	}
-
+	
+	/**
+	 * Méthode pour supprimer une catégorie de la BDD
+	 * @param id de la catégorie à supprimer
+	 */
 	@Override
 	public void supprId(int id) {
 		Session s=sf.getCurrentSession();
@@ -31,7 +38,9 @@ public class CategorieDaoImpl implements IGenerique<Categorie> {
 		s.delete(categorie);
 	}
 
-	@Override
+	/**
+	 * méthode pour trouver toutes les catégories
+	 */
 	public List<Categorie> getAll() {
 		Session s=sf.getCurrentSession();
 		String req="FROM Categorie";
@@ -40,6 +49,10 @@ public class CategorieDaoImpl implements IGenerique<Categorie> {
 		return lCategories;
 	}
 
+	/**
+	 * méthode pour trouver une catégorie avec un id
+	 * @param id de la catégorie à trouver
+	 */
 	@Override
 	public Categorie getById(int id) {
 		Session s=sf.getCurrentSession();
@@ -51,6 +64,10 @@ public class CategorieDaoImpl implements IGenerique<Categorie> {
 		return null;
 	}
 
+	/**
+	 * méthode pour modifier une catégorie dans la BDD
+	 * @param catégorie à modifier
+	 */
 	@Override
 	public void modif(Categorie t) {
 		Session s=sf.getCurrentSession();
