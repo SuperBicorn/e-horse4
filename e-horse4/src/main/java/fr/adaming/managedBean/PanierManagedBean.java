@@ -63,7 +63,9 @@ public class PanierManagedBean {
 
 	/**
 	 * méthhode pou
-	 * @param id_p du produit à ajouter au panier
+	 * 
+	 * @param id_p
+	 *            du produit à ajouter au panier
 	 * @return redirection vers la page index
 	 */
 	public String ajouterProduitPanier(int id_p) {
@@ -91,7 +93,9 @@ public class PanierManagedBean {
 
 	/**
 	 * méthode pour modifier la quantité d'un produit dans le panier
-	 * @param id_p id du produit à modifier
+	 * 
+	 * @param id_p
+	 *            id du produit à modifier
 	 * @return redirection vers la page panier
 	 */
 	public String modifierQuantitePanier(int id_p) {
@@ -110,7 +114,9 @@ public class PanierManagedBean {
 
 	/**
 	 * méthode pour supprimer un produit du panier
-	 * @param id_p id du produit à supprimer
+	 * 
+	 * @param id_p
+	 *            id du produit à supprimer
 	 * @return redirection vers le panier
 	 */
 	public String supprimerPanier(int id_p) {
@@ -123,6 +129,15 @@ public class PanierManagedBean {
 			}
 		}
 		return "panier";
+	}
+
+	/**
+	 * méthode pour valider le panier
+	 * 
+	 * @return String redirection vers la page client
+	 */
+	public String validerPanier() {
+		return "client";
 	}
 
 }
