@@ -39,7 +39,8 @@
 			<h:form>
 				<p:inputMask value="#{paMB.qtte}" />
 				<p:commandButton value="Modifier la quantité"
-					action="#{paMB.modifierQuantitePanier(pan.produit.idProduit)}" />
+					action="#{paMB.modifierQuantitePanier(pan.produit.idProduit)}"
+					update="@all" />
 			</h:form>
 		</p:column>
 		<p:column headerText="Supprimer">
@@ -51,6 +52,11 @@
 
 	</p:dataTable>
 
+	<br />
+	<br />
+	<h:form>
+<p:commandButton value="Valider la commande" action="#{}"/>
+	</h:form>
 
 </h:body>
 </html>

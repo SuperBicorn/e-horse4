@@ -25,12 +25,10 @@ public class PanierManagedBean {
 	private List<Panier> lPaniers;
 	private int qtte;
 
-	@ManagedProperty(value="#{produitServiceBean}")
+	@ManagedProperty(value = "#{produitServiceBean}")
 	private IProduitService prService;
 
-	
 	public PanierManagedBean() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@PostConstruct
@@ -39,7 +37,6 @@ public class PanierManagedBean {
 		this.panier = new Panier();
 	}
 
-	
 	public void setPrService(IProduitService prService) {
 		this.prService = prService;
 	}
@@ -69,13 +66,13 @@ public class PanierManagedBean {
 	}
 
 	/**
-	 * Méthode pour ajouter un produit au panir
+	 * Méthode pour ajouter un produit au panier
 	 * @param id_p
-	 * @return panier actualisé sur la page index
+	 * @return redirection vers la page index
 	 */
 	public String ajouterProduitPanier(int id_p) {
 		Produit prod = prService.getById(id_p);
-		this.panier = new Panier(prod,this.qtte,prod.getPrix()*qtte);
+		this.panier = new Panier(prod, this.qtte, prod.getPrix() * qtte);
 		int x = 0;
 		for (Panier pan : this.lPaniers) {
 			if (pan.getProduit().getIdProduit() == this.panier.getProduit().getIdProduit()) {
@@ -96,28 +93,33 @@ public class PanierManagedBean {
 		}
 	}
 	/**
-	 * MOdification de la quantité de produit dans le panier
+	 * méthode pour modifier la quantité d'un produit dans le panier
+	 * 
 	 * @param id_p
-	 * @return page panier où se fait l'action
+	 *            id du produit à modifier
+	 * @return redirection vers la page panier
 	 */
-	public String modifierQuantitePanier(int id_p){
+	public String modifierQuantitePanier(int id_p) {
 		Produit prod = prService.getById(id_p);
 		for (Panier pan : this.lPaniers) {
 			System.out.println(pan);
 			if (pan.getProduit().getIdProduit() == this.panier.getProduit().getIdProduit()) {
 				System.out.println("ok");
 				pan.setQuantite(this.qtte);
+			} else {
+				System.out.println("non ok");
 			}
 		}
 		return "panier";
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Suppression d'un produit dans le panier - la liste panier
 	 * @param id_p
 	 * @return le panier actualisé sur la page panier
 	 */
-	public String supprimerPanier(int id_p){
+	public String supprimerPanier(int id_p) {
 		Produit prod = prService.getById(id_p);
 		for (Panier pan : this.lPaniers) {
 			System.out.println(pan);
@@ -129,5 +131,13 @@ public class PanierManagedBean {
 		return "panier";
 	}
 
-	
+	/**
+	 * méthode pour valider le panier
+	 * 
+	 * @return String redirection vers la page client
+	 */
+	public String validerPanier() {
+		return "client";
+	}
+
 }

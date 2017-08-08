@@ -12,12 +12,22 @@ import com.mysql.fabric.xmlrpc.Client;
 
 import fr.adaming.model.Agent;
 
+/**
+ * Couche DAO de la classe agent
+ * @author INTI-390
+ *
+ */
 @Repository
 public class AgentDaoImpl implements IAgentDao {
 
 	@Autowired
 	private SessionFactory sf;
 
+	/**
+	 * méthode pour vérifier les identifiants de l'agent
+	 * @param username de l'agent
+	 * @param password de l'agent
+	 */
 	@Override
 	public int verif(String username, String password) {
 		Session s=sf.getCurrentSession();

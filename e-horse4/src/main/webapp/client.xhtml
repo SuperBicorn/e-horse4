@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Client</title>
+</h:head>
+
+<h:body>
+	<ui:insert>
+		<ui:include src="/template/headerClientTemplate.xhtml"></ui:include>
+	</ui:insert>
+
+	<h1 style="text-align: center; color: red;">Client</h1>
+
+	<h:form>
+		<h:panelGrid columns="2">
+
+			<p:outputLabel for="Nom" value="Nom" />
+			<p:inputMask id="Nom" value="#{}" />
+
+		</h:panelGrid>
+
+		<p:commandButton value="Client existant" action="#{}" />
+
+	</h:form>
+	<br />
+	<br />
+	<h:form>
+		<h:panelGrid columns="2">
+
+			<p:outputLabel for="Nom" value="Nom" />
+			<p:inputMask id="Nom" value="#{}" />
+			
+			<p:outputLabel for="Adresse" value="Adresse" />
+			<p:inputMask id="Adresse" value="#{}" />
+			
+			<p:outputLabel for="eMail" value="eMail" />
+			<p:inputMask id="eMail" value="#{}" />
+			
+			<p:outputLabel for="Tel" value="Téléphone" />
+			<p:inputMask id="Tel" value="#{}" />
+		</h:panelGrid>
+
+		<p:commandButton value="Enregistrer" action="#{}" />
+
+	</h:form>
+</h:body>
+</html>
